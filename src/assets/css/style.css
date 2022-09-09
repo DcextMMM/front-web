@@ -5,13 +5,16 @@
 }
 
 body {
-	background-image: url(agris.jpg);
-    background-size: cover;
+	font-family: 'Montserrat', sans-serif;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	font-family: 'Montserrat', sans-serif;
+}
+
+.body.login {
+	background-image: url(../img/agris.jpg);
+	background-size: cover;
 	height: 100vh;
 	margin: -20px 50px;
 }
@@ -96,6 +99,10 @@ input {
 }
 
 .container {
+	display: flex;
+}
+
+.container.login {
 	background-color: #fff;
 	border-radius: 10px;
 	position: relative;
