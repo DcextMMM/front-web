@@ -23,7 +23,7 @@ body {
 }
 
 #imgpos {
-	align-self: flex-end;
+	align-self: normal;
 	position: absolute;
 	margin-top: 20px;
     right: 30px;

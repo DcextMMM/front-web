@@ -17,6 +17,13 @@ body{
 	background-size: cover;
 }
 
+#imgpos {
+	align-self: normal;
+	position: absolute;
+	margin-top: 20px;
+    right: 30px;
+}
+
 .container {
     position: relative;
     border-radius: 20px;
