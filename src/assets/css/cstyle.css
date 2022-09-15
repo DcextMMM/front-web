@@ -17,6 +17,7 @@ body{
 }
 
 .container {
+    border-radius: 20px;
     width: 80%;
     height: 80vh;
     display: flex;
@@ -25,6 +26,8 @@ body{
 }
 
 .form-image {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
     width: 50%;
     display: flex;
     justify-content: center;
@@ -38,6 +41,8 @@ body{
 }
 
 .form {
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
     width: 50%;
     display: flex;
     justify-content: center;
