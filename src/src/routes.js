@@ -9,8 +9,8 @@ function Rotas(){
     return(
         <BrowserRouter>
             <Routes>
-                <Route path='/' exact component={LogIn} />
-                <Route path='/Cadastro' component={Cadastro} />
+                <Route exact path='/' element={<LogIn />} />
+                <Route path='/Cadastro' element={<Cadastro />} />
             </Routes>
         </BrowserRouter>
     )

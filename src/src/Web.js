@@ -3,9 +3,7 @@ import Rotas from './routes';
 
 function Web() {
   return (
-    <div>
-      <Rotas />
-    </div>
+    <Rotas />
   );
 }
 

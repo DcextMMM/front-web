@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 function Cadastro() {
 
@@ -13,7 +14,7 @@ function Cadastro() {
                                     <h1>Cadastro</h1>
                                 </div>
                                 <div class="login-button">
-                                    <button><a href="login.html">Voltar para Login</a></button>
+                                    <button><Link to="login.html">Voltar para Login</Link></button>
                                 </div>
                             </div>
                             
@@ -52,7 +53,7 @@ function Cadastro() {
                             </div>
 
                             <div class="continue-button">
-                                <button><a href="login.html">Continuar</a></button>
+                                <button><Link to="login.html">Continuar</Link></button>
                             </div>
                         </form>
 
