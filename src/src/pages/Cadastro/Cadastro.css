@@ -13,8 +13,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(/src/images/agris.jpg);
-	background-size: cover;
 }
 
 #imgpos {
