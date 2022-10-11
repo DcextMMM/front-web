@@ -11,6 +11,10 @@
 	width: 100%;
 }
 
+img {
+	background-size: cover;
+}
+
 .inner.login {
 	display: flex;
 	align-items: center;
