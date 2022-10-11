@@ -3,11 +3,14 @@ import './LogIn.css';
 import {Link} from 'react-router-dom';
 import Cadastro from '../Cadastro/Cadastro';
 
+const image = new url("./src/images/agris.jpg", import.meta.url);
+
 function LogIn() {
 
     return(
       
     <div className="body login">
+       <img src={image} />
         <div className="inner login">
             <div className="container login" id="container">
                 <div className="form-container sign-in-container">
