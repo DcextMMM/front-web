@@ -1,6 +1,7 @@
 import React from 'react';
 import './LogIn.css';
 import {Link} from 'react-router-dom';
+import Cadastro from '../Cadastro/Cadastro';
 
 function LogIn() {
 
@@ -23,7 +24,7 @@ function LogIn() {
                         <div className="overlay-panel overlay-right">
                             <h1>Olá, Agrônomo MMM!</h1>
                             <p>Faça aqui o seu cadastro no nosso sistema!</p>
-                            <a id="register-button" Link to="#"><button className="ghost">Cadastro</button></a>
+                            <Link to="/Cadastro" element={Cadastro} id="register-button"><button className="ghost">Cadastro</button></Link>
                         </div>
                     </div>
                 </div>
@@ -33,7 +34,7 @@ function LogIn() {
     <footer>
         <p>
             Acesse o site da Muda Meu Mundo (MMM) para conhecer 
-            <Link to="https://www.mudameumundo.com.br/" target="_blank"> mais</Link>
+            <a href="https://www.mudameumundo.com.br/" target="_blank"> mais</a>
         </p>
     </footer>
             </div>
