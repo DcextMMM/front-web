@@ -5,7 +5,7 @@ import Cadastro from '../Cadastro/Cadastro';
 
 function LogIn() {
 
-    return(
+    return( 
       
     <div className="body login">
         <div className="inner login">
@@ -15,7 +15,7 @@ function LogIn() {
                         <h1>Login</h1>
                         <input type="email" placeholder="Email" id="email"/>
                         <input type="password" placeholder="Senha" id="senha"/>
-                        <Link to="senha.html">Esqueceu sua senha?</Link>
+                        <Link to="">Esqueceu sua senha?</Link>
                         <button>Entrar</button>
                     </form>
                 </div>

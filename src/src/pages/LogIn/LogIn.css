@@ -4,6 +4,9 @@
 	box-sizing: border-box;
 }
 
+body {
+	background-image: url(https://www.google.com/url?sa=i&url=https%3A%2F%2Ffeedfood.com.br%2Festas-tres-mudancas-vao-otimizar-sua-fazenda%2F&psig=AOvVaw0YqUS59Xz-gx6XzhL0fjxL&ust=1665834848143000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCIDJqprU3_oCFQAAAAAdAAAAABAD);
+}
 .body.login {
 	border-radius: 20px;
 	margin: 0px;
