@@ -8,6 +8,7 @@ function LogIn() {
     return( 
       
     <div className="body login">
+        <div style={{ backgroundImage: "url(/public/images/agris.jpg)" }} />
         <div className="inner login">
             <div className="container login" id="container">
                 <div className="form-container sign-in-container">
@@ -34,7 +35,7 @@ function LogIn() {
     <footer>
         <p>
             Acesse o site da Muda Meu Mundo (MMM) para conhecer 
-            <a href="https://www.mudameumundo.com.br/" target="_blank"> mais</a>
+            <a href="https://www.mudameumundo.com.br/" rel='norefrerrer'> mais</a>
         </p>
     </footer>
             </div>
