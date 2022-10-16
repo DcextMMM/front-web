@@ -8,7 +8,6 @@ function LogIn() {
     return( 
       
     <div className="body login">
-        <div style={{ backgroundImage: "url(/public/images/agris.jpg)" }} />
         <div className="inner login">
             <div className="container login" id="container">
                 <div className="form-container sign-in-container">

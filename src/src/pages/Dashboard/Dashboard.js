@@ -35,16 +35,12 @@ function Dashboard() {
     <div className="main-content">
         <header>
             <h3>
-                <label for="nav-toggle">
-                <span className="las la-bars"></span>
-                </label>
-
                 Dashboard
             </h3>
             <div className="user-wrapper">
                 <div>
                     <h4>Nome</h4>
-                    <small>Agronomo</small>
+                    <small>Agrônomo</small>
                 </div>
             </div>
         </header>
@@ -86,62 +82,10 @@ function Dashboard() {
                         <span className="lab la-google-wallet"></span>
                     </div>
                 </div>
-            </div>
-            
-            <div className="recent-grid">
-            <div class="projects">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>Listagem</h3>
-                        </div>
-
-                    <div className="card">
-                        <div className="card-body">
-                            <div className="table-responsive">
-                                <table width="100%">
-                                    <thead>
-                                        <tr>
-                                            <td>Nome do produto</td>
-                                            <td>Quantidade</td>
-                                            <td>Tipo</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>ALT</td>
-                                            <td>ALT</td>
-                                            <td>
-                                                <span className="status green"></span>
-                                                Levedura
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>ALT</td>
-                                            <td>ALT</td>
-                                            <td>
-                                                <span className="status wood"></span>
-                                                Leguminosa
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>ALT</td>
-                                            <td>ALT</td>
-                                            <td>
-                                                <span className="status orange"></span>
-                                                Fruta
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </div>          
         </div>
     </div>
+</div>
 
     );
 };

@@ -53,8 +53,8 @@ function Cadastro() {
 
     async function validate(){
         let schema = yup.object().shape({
-            firstname: yup.string("Erro: Preencha o nome")
-                .required("Erro: Preencha o nome")
+            firstname: yup.string("Erro: Preencha o formulário")
+                .required("Erro: Preencha o formulário")
         });
 
         try{
@@ -73,7 +73,7 @@ function Cadastro() {
         
         <div className ='body container'>
             {status.type === 'success' ? <p style={{ color: "green"}}>{status.mensagem}</p> : ""}
-            {status.type === 'error' ? <p style={{color: "#fff000"}}>{status.mensagem}</p> : ""}
+            {status.type === 'error' ? <p style={{color: "red"}}>{status.mensagem}</p> : ""}
                 <div className ="container">
                     <div className ="form-cadastro">
                         <form onSubmit={addUser}>
