@@ -1,29 +1,32 @@
 import React from "react";
-import "https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css";
+import './Dashboard.css';
+import MeuPerfil from '../MeuPerfil/MeuPerfil';
+import Listagem from "../Listagem/Listagem";
+import {Link} from 'react-router-dom';
 
 function Dashboard() {
     return(
     <div className="body dashboard">
 
      <input type="checkbox" id="nav-toggle" />
+     
      <div className="sidebar">
         <div className="sidebar-brand">
-            <h2>Dashboard</h2>
+            <h2>Guia:</h2>
         </div>
 
         <div className="sidebar-menu">
             <ul>
                 <li>
-                    <a Link to="" className = "active"><span className="las la-home"></span>
-                    <span>Dashboard</span></a>
+                <li>
+                   <Link to="/Dashboard" element={Dashboard}><button>Dashboard</button></Link>
+                </li>
                 </li>
                 <li>
-                    <a Link to=""><span className="las la-users"></span>
-                    <span>Meu perfil</span></a>
+                   <Link to="/MeuPerfil" element={MeuPerfil}><button>Meu Perfil</button></Link>
                 </li>
                 <li>
-                    <a Link to=""><span className="las la-clipboard-list"></span>
-                    <span>Listagem de produtos </span></a>
+                    <Link to="/Listagem" element={Listagem}><button>Listagem de produtos</button></Link>
                 </li>
             </ul>
         </div>
@@ -32,16 +35,12 @@ function Dashboard() {
     <div className="main-content">
         <header>
             <h3>
-                <label for="nav-toggle">
-                <span className="las la-bars"></span>
-                </label>
-
                 Dashboard
             </h3>
             <div className="user-wrapper">
                 <div>
                     <h4>Nome</h4>
-                    <small>Agronomo</small>
+                    <small>Agrônomo</small>
                 </div>
             </div>
         </header>
@@ -49,7 +48,7 @@ function Dashboard() {
             <div className="cards">
                 <div className="card-single">
                     <div>
-                        <h1>54</h1>
+                        <h1>Uva</h1>
                         <span>Produtos da estação</span>
                     </div>
                     <div>
@@ -83,54 +82,10 @@ function Dashboard() {
                         <span className="lab la-google-wallet"></span>
                     </div>
                 </div>
-            </div>
-            
-            <div className="recent-grid">
-                    <div className="card">
-                        <div className="card-body">
-                            <div className="table-responsive">
-                                <table width="100%">
-                                    <thead>
-                                        <tr>
-                                            <td>Nome do produto</td>
-                                            <td>Quantidade</td>
-                                            <td>Tipo</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>ALT</td>
-                                            <td>ALT</td>
-                                            <td>
-                                                <span className="status purple"></span>
-                                                Levedura
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>ALT</td>
-                                            <td>ALT</td>
-                                            <td>
-                                                <span className="status pink"></span>
-                                                Leguminosa
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>ALT</td>
-                                            <td>ALT</td>
-                                            <td>
-                                                <span className="status orange"></span>
-                                                Fruta
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </div>          
         </div>
     </div>
+</div>
 
     );
 };

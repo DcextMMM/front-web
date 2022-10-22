@@ -5,10 +5,12 @@
 }
 
 .body.login {
-	border-radius: 20px;
 	margin: 0px;
+	min-height: 100vh;
+	flex-direction: column;
 	font-family: 'Montserrat', sans-serif;
-	width: 100%;
+	background-size: cover;
+	background-image: url(https://cbdfx.com/wp-content/uploads/2021/04/cbdfx-us-blog-The-History-of-Hemp-in-Kentucky.jpg);
 }
 
 .inner.login {
@@ -27,10 +29,6 @@
 h1 {
 	font-weight: bold;
 	margin: 0.5;
-}
-
-h2 {
-	text-align: center;
 }
 
 p {

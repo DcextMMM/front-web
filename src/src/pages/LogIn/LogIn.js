@@ -5,7 +5,7 @@ import Cadastro from '../Cadastro/Cadastro';
 
 function LogIn() {
 
-    return(
+    return( 
       
     <div className="body login">
         <div className="inner login">
@@ -15,8 +15,8 @@ function LogIn() {
                         <h1>Login</h1>
                         <input type="email" placeholder="Email" id="email"/>
                         <input type="password" placeholder="Senha" id="senha"/>
-                        <Link to="senha.html">Esqueceu sua senha?</Link>
-                        <button>Entrar</button>
+                        <Link to="">Esqueceu sua senha?</Link>
+                        <button className='entrar'>Entrar</button>
                     </form>
                 </div>
                 <div className="overlay-container">
@@ -34,7 +34,7 @@ function LogIn() {
     <footer>
         <p>
             Acesse o site da Muda Meu Mundo (MMM) para conhecer 
-            <a href="https://www.mudameumundo.com.br/" target="_blank"> mais</a>
+            <a href="https://www.mudameumundo.com.br/" rel='norefrerrer'> mais</a>
         </p>
     </footer>
             </div>
