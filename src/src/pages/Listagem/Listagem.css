@@ -72,6 +72,35 @@
     margin-left: 345px;
 }
 
+.input-list {
+    border: 4px;
+    width: 90px;
+    height: auto;
+    font-size: .9rem;
+}
+
+.input-type {
+    border: 1px;
+    width: 20px;
+    height: auto;
+    font-size: .9rem;
+}
+
+.size {
+    border: 4px;
+    width: 100px;
+    height: auto;
+    font-size: .9rem;
+}
+
+button {
+
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 5px;
+	letter-spacing: 1px;
+}
 
 header {
     background: #fff;
@@ -173,7 +202,6 @@ thead th {
 }
 
 td {
-    padding: .5rem 1rem;
     font-size: .9rem;
     color: #222;
 

@@ -16,7 +16,7 @@ function LogIn() {
                         <input type="email" placeholder="Email" id="email"/>
                         <input type="password" placeholder="Senha" id="senha"/>
                         <Link to="">Esqueceu sua senha?</Link>
-                        <button>Entrar</button>
+                        <button className='entrar'>Entrar</button>
                     </form>
                 </div>
                 <div className="overlay-container">

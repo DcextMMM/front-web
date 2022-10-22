@@ -1,4 +1,5 @@
-import React from 'react';
+
+import axios from "axios";
 import {Link} from 'react-router-dom';
 import { useState } from "react";
 import LogIn from '../LogIn/LogIn';
@@ -7,36 +8,26 @@ import './Cadastro.css';
 
 function Cadastro() {
 
-    const [user, setUser] = useState({
-        nome: '',
-        sobrenome: '',
-        email: '',
-        cpf: '',
-        senha: '', 
-        endereço: '',
-        numero: '',
-        cep:'',
-    });
+    const [user, setUser] = useState({});
 
     const [status, setStatus] = useState({
         type: '',
         mensagem: ''
     });
 
-    const valueInput = e => setUser({...user, [e.target.name]: e.target.value});
+    const valueInput = e => {
+        setUser({...user, [e.target.name]: e.target.value});
+    }
 
     const addUser = async e => {
         e.preventDefault();
 
-        if(!(await validate())) return;
+        // if(!(await validate())) return;
 
         const saveDataForm = true;
 
         if (saveDataForm) {
-            setStatus({
-                type: 'success',
-                mensagem: 'Usuário cadastrado com sucesso!'
-            });
+            sendForm(user);
 
             setUser({
                 name: '',
@@ -51,6 +42,14 @@ function Cadastro() {
         }
     }
 
+    async function sendForm(data){
+        await axios.get('http://localhost:3210/requests', data)
+            .then(res => console.log(res));
+
+    }
+    
+    
+    
     async function validate(){
         let schema = yup.object().shape({
             firstname: yup.string("Erro: Preencha o formulário")
@@ -124,7 +123,7 @@ function Cadastro() {
 
                                 <div className ="input-box">
                                     <label for="number">Número</label>
-                                    <input type="number" id="number" name="number" placeholder="Digite o número" onChange={valueInput} value={user.número}></input>
+                                    <input type="number" id="number" name="number" placeholder="Digite o número" onChange={valueInput} value={user.numero}></input>
                                 </div>
 
                                 <div className ="input-box">
@@ -135,7 +134,7 @@ function Cadastro() {
                             </div>
 
                             <div className ="continue-button">
-                                <button type='submit'><Link to="#">Continuar</Link></button>
+                                <button type='submit' onSubmit={addUser}><Link to="#">Continuar</Link></button>
                             </div>
                         </form>
 
