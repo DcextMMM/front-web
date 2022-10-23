@@ -72,6 +72,15 @@
     margin-left: 345px;
 }
 
+.list-products {
+    display: flex;
+    flex-direction: row;
+}
+
+.product {
+    margin-right: 5px;
+}
+
 .input-list {
     border: 4px;
     width: 90px;
@@ -162,6 +171,12 @@ main {
 
 .card-header {
     padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-header article{
+    margin-top: 10px;
 }
 
 .card-header {
@@ -178,6 +193,12 @@ main {
     font-size: .8rem;
     padding: .5rem 1rem;
     border: 1px solid var(--main-color);
+    cursor: pointer;
+}
+
+.card-header button:hover{
+    background-color: #fff;
+    color: var(--main-color);
 }
 
 table {

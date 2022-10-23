@@ -4,26 +4,26 @@ import MeuPerfil from '../MeuPerfil/MeuPerfil';
 import Dashboard from '../Dashboard/Dashboard';
 import {Link} from 'react-router-dom';
 import { api } from '../../services/apiClient';
+import moment from 'moment';
 
 function Listagem(){
-
-    const [product, setProduct] = useState({});
+    const [product, setProduct] = useState([]);
 
     useEffect(() => {
         const getData = () => {
             const request = api();
 
             request.get('/products')
-                .then(res => setProduct(res))
+                .then(res => setProduct(res.data))
                 .catch(error => console.log(error));
         }
 
-        console.log(product);
+        
 
         getData();
     }, []);
 
-    const [busca, setBusca] = useState('');
+    console.log(product);
 
 
     // const frutasFilter = frutas.filter((fruta) => fruta.toLowerCase().includes(busca.toLowerCase()));
@@ -72,40 +72,21 @@ function Listagem(){
                     <div className="card">
                         <div className="card-header">
                             <h3>Listagem</h3>
+                            <div className="list-products">
+                                {product.map(product => {
+                                    return(
+                                        <article className="product" key={product.id}>
+                                            <strong>{product.nome}<br/></strong>
+                                            <span>{`Preço: R$${product.preco},00`}<br/></span>
+                                            <span>{`Quantidade: ${product.quantidade}`}<br/></span>
+                                            <span>{`Data de colheita: ${moment(product.data_colheita).format('DD/MM/YYYY')}`}<br/></span>
+                                            <button>Reservar<br/></button>
+                                        </article>
+                                    )
+                                })}
+                            </div>
                         </div>
 
-                    <div className="card">
-                        <div className="card-body">
-                            <div className="table-responsive">
-                                <table width="100%">
-                                    <thead>
-                                        <tr>
-                                            <td>Tipo</td>
-                                            <td>Nome do produto</td>
-                                            <td>Quantidade</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td><input type="text" /></td>
-
-                                            {/* <td><input className="input list" type="text" 
-                                            value={busca}
-                                            onChange={(ev) => setBusca(ev.target.value)}/>
-                                            <ul>
-                                                {frutasFilter.map((fruta) => (
-                                                    <li key={fruta}>{fruta}</li>
-                                                ))}
-                                            </ul>
-                                            </td> */}
-
-                                            <td><input type="number"/></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
