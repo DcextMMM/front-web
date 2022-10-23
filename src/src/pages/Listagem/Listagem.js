@@ -1,29 +1,32 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import './Listagem.css'; 
 import MeuPerfil from '../MeuPerfil/MeuPerfil';
 import Dashboard from '../Dashboard/Dashboard';
 import {Link} from 'react-router-dom';
+import { api } from '../../services/apiClient';
 
 function Listagem(){
 
-    const frutas = [
-        'laranja' ,
-        'banana' ,
-        'maçã' ,
-        'morango' ,
-        'pêra'
-    ];
+    const [product, setProduct] = useState({});
 
-    const tipo = [
-        'legume' ,
-        'verdura' ,
-        'fruta'
-    ];
+    useEffect(() => {
+        const getData = () => {
+            const request = api();
+
+            request.get('/products')
+                .then(res => setProduct(res))
+                .catch(error => console.log(error));
+        }
+
+        console.log(product);
+
+        getData();
+    }, []);
 
     const [busca, setBusca] = useState('');
 
 
-    const frutasFilter = frutas.filter((fruta) => fruta.toLowerCase().includes(busca.toLowerCase()));
+    // const frutasFilter = frutas.filter((fruta) => fruta.toLowerCase().includes(busca.toLowerCase()));
 
     return(
         <div className="body dashboard">
@@ -86,7 +89,7 @@ function Listagem(){
                                         <tr>
                                             <td><input type="text" /></td>
 
-                                            <td><input className="input list" type="text" 
+                                            {/* <td><input className="input list" type="text" 
                                             value={busca}
                                             onChange={(ev) => setBusca(ev.target.value)}/>
                                             <ul>
@@ -94,7 +97,7 @@ function Listagem(){
                                                     <li key={fruta}>{fruta}</li>
                                                 ))}
                                             </ul>
-                                            </td>
+                                            </td> */}
 
                                             <td><input type="number"/></td>
                                         </tr>
