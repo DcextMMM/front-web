@@ -23,10 +23,28 @@ function Listagem(){
         getData();
     }, []);
 
-    console.log(product);
+    useEffect(() => {
+        const getData = () => {
+            const request = api();
 
+            request.get('/products')
+                .then(res => setProduct(res.data))
+                .catch(error => console.log(error));
+        }
 
-    // const frutasFilter = frutas.filter((fruta) => fruta.toLowerCase().includes(busca.toLowerCase()));
+        
+
+        getData();
+    }, [product]);
+
+    async function addRequest(id){
+        const request = api();
+        console.log(id);
+
+        request.post(`/requests/${id}`)
+        .then(res => console.log(res))
+        .catch(err => console.log(err));
+    }
 
     return(
         <div className="body dashboard">
@@ -80,7 +98,7 @@ function Listagem(){
                                             <span>{`Preço: R$${product.preco},00`}<br/></span>
                                             <span>{`Quantidade: ${product.quantidade}`}<br/></span>
                                             <span>{`Data de colheita: ${moment(product.data_colheita).format('DD/MM/YYYY')}`}<br/></span>
-                                            <button>Reservar<br/></button>
+                                            <button onClick={() => addRequest(product.id)}>Reservar<br/></button>
                                         </article>
                                     )
                                 })}
