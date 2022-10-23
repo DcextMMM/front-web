@@ -1,13 +1,15 @@
-
+import React from "react";
 import axios from "axios";
 import {Link} from 'react-router-dom';
 import { useState } from "react";
 import LogIn from '../LogIn/LogIn';
 import * as yup from "yup";
-import './Cadastro.css';
+import './Cadastro.css'; 
+import { api } from '../../services/apiClient';
 
 function Cadastro() {
 
+    const [post, setPost] = useState({});
     const [user, setUser] = useState({});
 
     const [status, setStatus] = useState({
@@ -22,38 +24,54 @@ function Cadastro() {
     const addUser = async e => {
         e.preventDefault();
 
-        // if(!(await validate())) return;
+       /*  if(!(await validate())) return; */
 
-        const saveDataForm = true;
+        // const saveDataForm = true;
 
-        if (saveDataForm) {
-            sendForm(user);
+        // if (saveDataForm) {
+        //     setUser({
+        //         name: '',
+        //         email: '',
+        //         password: ''
+        //     });
+        // } else{
+        //     setStatus({
+        //         type: 'error',
+        //         mensagem: 'Erro: Usuário não cadastrado!'
+        //     })
+        // }
+    } 
 
-            setUser({
-                name: '',
-                email: '',
-                password: ''
-            });
-        } else{
-            setStatus({
-                type: 'error',
-                mensagem: 'Erro: Usuário não cadastrado!'
-            })
-        }
-    }
-
-    async function sendForm(data){
-        await axios.get('http://localhost:3210/requests', data)
-            .then(res => console.log(res));
-
-    }
+    // React.useEffect(() => {
+    //     axios.get("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidHlwZSI6ImFncm9ub21vIiwiaWF0IjoxNjY2NDY2NzMwLCJleHAiOjE2NjcwNzE1MzB9.7bnK0NcVf0j8mTAJDBmZmDj45alM97ahOMqIvGLP07M").then((response) => {
+    //       setPost(response.data);
+    //     });
+    //   }, []);
     
-    
+     async function createPost() {
+        console.log(' aisfhai');
+        const request = api();
+
+        request.post('/cadastro', { ...user, type: 'agronomo' }).then((resp) => {
+            console.log(resp);
+        }).catch(error => {
+            console.log(error);
+        });
+
+      }  
+      if (!post) return null;    
     
     async function validate(){
         let schema = yup.object().shape({
-            firstname: yup.string("Erro: Preencha o formulário")
-                .required("Erro: Preencha o formulário")
+            firstname: yup.string("Erro: Preencha o formulário"),
+            password: yup.string("Erro: Necessário preencher o campo senha!"),
+            email: yup.string("Erro: Necessário preencher o campo e-mail!"),
+                // .required("Erro: Necessário preencher o campo e-mail!"),
+            lastname: yup.string("Erro: Necessário preencher o campo nome!"),
+            address: yup.string("Erro: Necessário preencher o campo endereço!"),
+            cep: yup.number("Erro: Necessário preencher o campo cep!"),
+            cpf: yup.number("Erro: Ncessário preencher o campo cpf!")
+
         });
 
         try{
@@ -87,54 +105,54 @@ function Cadastro() {
                             
                             <div className ="input-group">
                                 <div className ="input-box">
-                                    <label for="firstname">Primeiro nome</label>
-                                    <input type="text" id="text" name="firstname" placeholder="Digite o primeiro nome" onChange={valueInput} value={user.nome}></input>
+                                    <label htmlFor="firstname">Primeiro nome</label>
+                                    <input type="text" name="nome" placeholder="Digite o primeiro nome" onChange={valueInput} value={user.nome}></input>
                                 </div>
 
                                 <div className ="input-box">
-                                    <label for="lastname">Sobrenome</label>
-                                    <input type="text" id="text" name="lastname" placeholder="Digite o sobrenome" onChange={valueInput} value={user.sobrenome}></input>
+                                    <label htmlFor="lastname">Sobrenome</label>
+                                    <input type="text" name="sobrenome" placeholder="Digite o sobrenome" onChange={valueInput} value={user.sobrenome}></input>
                                 </div>
 
                                 <div className ="input-box">
-                                    <label for="email">Email</label>
-                                    <input type="email" id="text" name="email" placeholder="Digite o email" onChange={valueInput} value={user.email}></input>
+                                    <label htmlFor="email">Email</label>
+                                    <input type="email" name="email" placeholder="Digite o email" onChange={valueInput} value={user.email}></input>
                                 </div>
 
                                 <div className ="input-box">
-                                    <label for="number">Celular</label>
-                                    <input type="tel" id="number" name="number" placeholder="(xx) xxxx-xxxx" onChange={valueInput} value={user.celular}></input>
+                                    <label htmlFor="number">Celular</label>
+                                    <input type="tel" name="telefone" placeholder="(xx) xxxx-xxxx" onChange={valueInput} value={user.celular}></input>
                                 </div>
 
                                 <div className ="input-box">
-                                    <label for="cpf">CPF</label>
-                                    <input type="text" id="text" name="cpf" placeholder="Digite o cpf" onChange={valueInput} value={user.cpf}></input>
+                                    <label htmlFor="cpf">CPF</label>
+                                    <input type="text" name="cpf" placeholder="Digite o cpf" onChange={valueInput} value={user.cpf}></input>
                                 </div>
 
                                 <div className ="input-box">
-                                    <label for="password">Senha</label>
-                                    <input type="password" id="password" name="password" placeholder="Crie a senha" onChange={valueInput} value={user.senha}></input>
+                                    <label htmlFor="password">Senha</label>
+                                    <input type="password" name="senha" placeholder="Crie a senha" onChange={valueInput} value={user.senha}></input>
                                 </div>
 
                                 <div className ="input-box">
-                                    <label for="address">Endereço</label>
-                                    <input type="text" id="text" name="address" placeholder="Digite o endereço" onChange={valueInput} value={user.endereço}></input>
+                                    <label htmlFor="address">Endereço</label>
+                                    <input type="text" name="rua" placeholder="Digite o endereço" onChange={valueInput} value={user.rua}></input>
                                 </div>
 
                                 <div className ="input-box">
-                                    <label for="number">Número</label>
-                                    <input type="number" id="number" name="number" placeholder="Digite o número" onChange={valueInput} value={user.numero}></input>
+                                    <label htmlFor="number">Número</label>
+                                    <input type="number" name="numero" placeholder="Digite o número" onChange={valueInput} value={user.numero}></input>
                                 </div>
 
                                 <div className ="input-box">
-                                    <label for="cep">CEP</label>
-                                    <input type="text" id="text" name="cep" placeholder="Digite o cep" onChange={valueInput} value={user.cep}></input>
+                                    <label htmlFor="cep">CEP</label>
+                                    <input type="text" name="cep" placeholder="Digite o cep" onChange={valueInput} value={user.cep}></input>
                                 </div>
                                 
                             </div>
 
                             <div className ="continue-button">
-                                <button type='submit' onSubmit={addUser}><Link to="#">Continuar</Link></button>
+                                <button type='button' onClick={createPost}>Continuar</button>
                             </div>
                         </form>
 
@@ -143,5 +161,6 @@ function Cadastro() {
                 </div>
     );
 };
+
 
 export default Cadastro;

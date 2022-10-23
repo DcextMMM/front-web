@@ -1,7 +1,8 @@
 import React from 'react';
-import './LogIn.css';
+import './LogIn.css'; 
 import {Link} from 'react-router-dom';
 import Cadastro from '../Cadastro/Cadastro';
+import * as yup from "yup";
 
 function LogIn() {
 

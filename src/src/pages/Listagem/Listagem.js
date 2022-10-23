@@ -1,9 +1,8 @@
 import React, {useState} from "react";
-import './Listagem.css';
+import './Listagem.css'; 
 import MeuPerfil from '../MeuPerfil/MeuPerfil';
 import Dashboard from '../Dashboard/Dashboard';
 import {Link} from 'react-router-dom';
-
 
 function Listagem(){
 
@@ -25,7 +24,6 @@ function Listagem(){
 
 
     const frutasFilter = frutas.filter((fruta) => fruta.toLowerCase().includes(busca.toLowerCase()));
-    const statusFilter = tipo.filter((tipo) => tipo.toLowerCase().includes(busca.toLowerCase()));
 
     return(
         <div className="body dashboard">
@@ -67,9 +65,9 @@ function Listagem(){
             </div>
         </header>
         <div className="recent-grid">
-            <div class="projects">
-                    <div class="card">
-                        <div class="card-header">
+            <div className="projects">
+                    <div className="card">
+                        <div className="card-header">
                             <h3>Listagem</h3>
                         </div>
 
@@ -79,13 +77,15 @@ function Listagem(){
                                 <table width="100%">
                                     <thead>
                                         <tr>
+                                            <td>Tipo</td>
                                             <td>Nome do produto</td>
                                             <td>Quantidade</td>
-                                            <td>Tipo</td>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
+                                            <td><input type="text" /></td>
+
                                             <td><input className="input list" type="text" 
                                             value={busca}
                                             onChange={(ev) => setBusca(ev.target.value)}/>
@@ -96,10 +96,7 @@ function Listagem(){
                                             </ul>
                                             </td>
 
-                                            <td></td>
-
-                                            <td><input className="input type" type="text" />
-                                            </td>
+                                            <td><input type="number"/></td>
                                         </tr>
                                     </tbody>
                                 </table>
