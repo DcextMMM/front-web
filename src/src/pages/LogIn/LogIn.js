@@ -1,10 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './LogIn.css'; 
 import {Link} from 'react-router-dom';
 import Cadastro from '../Cadastro/Cadastro';
 import * as yup from "yup";
+import { api } from '../../services/apiClient';
 
 function LogIn() {
+    const [user, setUser] = useState({});
+
+    const valueInput = e => {
+        setUser({...user, [e.target.name]: e.target.value});
+    } 
+
+    const sendForm = e => {
+        e.preventDefault();
+        
+        const request = api();
+
+        request.post('/login', { ...user, type: 'agronomo' })
+            .then(res => {
+                localStorage["@auth.token"]  = res.data.token;
+                window.location = 'http://localhost:3000/Listagem';
+            })
+            .catch(error => console.log(error));
+    }
+
 
     return( 
       
@@ -14,10 +34,10 @@ function LogIn() {
                 <div className="form-container sign-in-container">
                     <form action="#">
                         <h1>Login</h1>
-                        <input type="email" placeholder="Email" id="email"/>
-                        <input type="password" placeholder="Senha" id="senha"/>
+                        <input type="email" name="login" placeholder="Email" onChange={valueInput} value={user.email}/>
+                        <input type="password" name="senha" placeholder="Senha" onChange={valueInput} value={user.senha}/>
                         <Link to="">Esqueceu sua senha?</Link>
-                        <button className='entrar'>Entrar</button>
+                        <button className='entrar' onClick={sendForm}>Entrar</button>
                     </form>
                 </div>
                 <div className="overlay-container">
