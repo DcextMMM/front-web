@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 export default function setupAPI(){
-    console.log(' afifhiaos');
     const api = axios.create({
         baseURL: 'http://localhost:3210',
         headers: {

@@ -24,7 +24,7 @@ function Cadastro() {
     const addUser = async e => {
         e.preventDefault();
 
-       /*  if(!(await validate())) return; */
+        if(!(await validate())) return; 
 
         // const saveDataForm = true;
 
@@ -49,11 +49,10 @@ function Cadastro() {
     //   }, []);
     
      async function createPost() {
-        console.log(' aisfhai');
         const request = api();
 
         request.post('/cadastro', { ...user, type: 'agronomo' }).then((resp) => {
-            console.log(resp);
+            window.location = '/';
         }).catch(error => {
             console.log(error);
         });
@@ -97,9 +96,6 @@ function Cadastro() {
                             <div className ="form-header">
                                 <div className ="title">
                                     <h1>Cadastro</h1>
-                                </div>
-                                <div className ="login-button">
-                                    <button><Link to="/" element={LogIn}>Voltar para Login</Link></button>
                                 </div>
                             </div>
                             

@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useReducer } from "react";
 import {Link} from 'react-router-dom';
 import Dashboard from "../Dashboard/Dashboard";
 import Listagem from "../Listagem/Listagem";
+// import { user } from "../Cadastro/Cadastro";
 import './MeuPerfil.css';
 
 function MeuPerfil() {
@@ -39,10 +40,10 @@ function MeuPerfil() {
             </h3>
             <div className="user-wrapper">
                 <div>
-                    <h4>Nome</h4>
+                    {/* <h4>{user.nome}</h4> */}
                     <small>Agrônomo</small>
                 </div>
-            </div>
+            </div>                                          
         </header>
     </div>
         </div>

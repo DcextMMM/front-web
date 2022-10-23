@@ -51,35 +51,23 @@ function Dashboard() {
                         <h1>Uva</h1>
                         <span>Produtos da estação</span>
                     </div>
-                    <div>
-                        <span className="las la-users"></span>
-                    </div>
                 </div>
                 <div className="card-single">
                     <div>
                         <h1>Alface</h1>
                         <span>Produto mais vendido</span>
                     </div>
-                    <div>
-                        <span className="las la-clipboard-list"></span>
-                    </div>
                 </div>
                 <div className="card-single">
                     <div>
                         <h1>24</h1>
-                        <span>Media de vendas</span>
-                    </div>
-                    <div>
-                        <span className="las la-shopping-bag"></span>
+                        <span>Média de vendas</span>
                     </div>
                 </div>
                 <div className="card-single">
                     <div>
                         <h1>36</h1>
-                        <span>Numero de pedidos</span>
-                    </div>
-                    <div>
-                        <span className="lab la-google-wallet"></span>
+                        <span>Número de pedidos</span>
                     </div>
                 </div>
             </div>          
