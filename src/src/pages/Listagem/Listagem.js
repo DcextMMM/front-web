@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import './Listagem.css'; 
+import './Listagem.css';
 import MeusPedidos from '../MeusPedidos/MeusPedidos'
 import {Link} from 'react-router-dom';
 import { api } from '../../services/apiClient';
@@ -19,8 +19,6 @@ function Listagem(){
                 .catch(error => console.log(error));
         }
 
-        
-
         getData();
     }, []);
 
@@ -33,10 +31,13 @@ function Listagem(){
                 .catch(error => console.log(error));
         }
 
-        
-
         getData();
     }, [product]);
+
+    const logout = () => {
+        localStorage.clear();
+        window.location = 'http://localhost:3000';
+    };
 
     async function addRequest(id){
         const request = api();
@@ -53,7 +54,7 @@ function Listagem(){
         <div className="body dashboard">
 
      <input type="checkbox" id="nav-toggle" />
-     
+
      <div className="sidebar">
         <div className="sidebar-brand">
             <h2>Guia:</h2>
@@ -69,6 +70,9 @@ function Listagem(){
                 </li>
                 <li>
                     <Link to="/Listagem" element={Listagem}><button>Listagem de produtos</button></Link>
+                </li>
+                <li>
+                   <button onClick={logout}>Sair</button>
                 </li>
             </ul>
         </div>
