@@ -81,8 +81,7 @@ function Listagem(){
             </h3>
             <div className="user-wrapper">
                 <div>
-                    <h4>Nome</h4>
-                    <small>Agrônomo</small>
+                    <h4>Agrônomo</h4>
                 </div>
             </div>
         </header>
