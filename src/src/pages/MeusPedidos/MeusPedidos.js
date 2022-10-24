@@ -43,6 +43,11 @@ function MeusPedidos() {
 
         toast.success('Pedido cancelado com sucesso');
     }
+
+    const logout = () => {
+        localStorage.clear();
+        window.location = 'http://localhost:3000';
+    };
     
     
     return(
@@ -64,6 +69,9 @@ function MeusPedidos() {
                 </li>
                 <li>
                     <Link to="/Listagem" element={Listagem}><button>Listagem de produtos</button></Link>
+                </li>
+                <li>
+                    <button onClick={logout}>Sair</button>
                 </li>
             </ul>
         </div>

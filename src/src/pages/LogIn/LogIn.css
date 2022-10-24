@@ -107,6 +107,11 @@ input {
 	margin-top: 4%;
 }
 
+.container.login button:hover{
+	background-color: #fff;
+	color: var(--main-color);
+}
+
 .form-container {
 	position: absolute;
 	top: 100;
