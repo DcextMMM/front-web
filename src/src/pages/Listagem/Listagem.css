@@ -73,8 +73,10 @@
 }
 
 .list-products {
+    flex-wrap: wrap;
     display: flex;
     flex-direction: row;
+    padding: 40px;
 }
 
 .product {
@@ -159,7 +161,7 @@ main {
 }
 
 .recent-grid {
-    margin-top: 11.5rem;
+    /* margin-top: 11.5rem; */
     display: flex;
     grid-gap: 2rem;
     grid-template-columns: 65% auto;
@@ -184,9 +186,10 @@ main {
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #f0f0f0;
+    flex-wrap: nowrap;
 }
 
-.card-header button {
+.product button {
     background: var(--main-color);
     border-radius: 10px;
     color: #fff;
@@ -196,7 +199,7 @@ main {
     cursor: pointer;
 }
 
-.card-header button:hover{
+.product button:hover{
     background-color: #fff;
     color: var(--main-color);
 }

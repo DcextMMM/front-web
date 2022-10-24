@@ -28,6 +28,13 @@
     justify-content: space-between;
 }
 
+.sidebar button:hover{
+    background-color: #fff;
+    color: var(--main-color);
+    border: var(--main-color);
+}
+
+
 .sidebar-brand {
     height: 90px;
     padding :1rem 0rem 1rem 2rem;
@@ -46,8 +53,13 @@
 .sidebar-menu li {
     width: 100%;
     margin-bottom: 1.7rem;
-
+    cursor: pointer;
 }
+
+/* .sidebar-menu li:hover{
+    background-color: #fff;
+} */
+
 
 .sidebar-menu a {
     padding-left: 1rem;
@@ -157,6 +169,7 @@ main {
 }
 
 .recent-grid {
+    margin-top: 3.5rem;
     display: grid;
     grid-gap: 2rem;
     grid-template-columns: 65% auto;
@@ -170,20 +183,39 @@ main {
     padding: 1rem;
 }
 
+.list-requests{
+    flex-direction: row;
+    display: flex;
+    padding: 40px;
+    flex-wrap: wrap;
+}
+
+.order{
+    margin-right: 5px;
+}
+
 .card-header {
+    margin-top: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #f0f0f0;
 }
 
-.card-header button {
-    background: var(--main-color);
+.order button {
+    background: red;
     border-radius: 10px;
     color: #fff;
     font-size: .8rem;
     padding: .5rem 1rem;
-    border: 1px solid var(--main-color);
+    border: 1px solid red;
+    cursor: pointer;
+}
+
+
+.order button:hover{
+    background-color: #fff;
+    color: red;
 }
 
 table {

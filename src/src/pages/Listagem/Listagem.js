@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from "react";
 import './Listagem.css'; 
-import MeuPerfil from '../MeuPerfil/MeuPerfil';
-import Dashboard from '../Dashboard/Dashboard';
+import MeusPedidos from '../MeusPedidos/MeusPedidos'
 import {Link} from 'react-router-dom';
 import { api } from '../../services/apiClient';
 import moment from 'moment';
+import { toast } from "react-toastify";
+
 
 function Listagem(){
     const [product, setProduct] = useState([]);
@@ -44,6 +45,8 @@ function Listagem(){
         request.post(`/requests/${id}`)
         .then(res => console.log(res))
         .catch(err => console.log(err));
+
+        toast.success('Reserva feita com sucesso');
     }
 
     return(
@@ -59,12 +62,10 @@ function Listagem(){
         <div className="sidebar-menu">
             <ul>
                 <li>
-                <li>
-                   <Link to="/Dashboard" element={Dashboard}><button>Dashboard</button></Link>
                 </li>
-                </li>
+
                 <li>
-                   <Link to="/MeuPerfil" element={MeuPerfil}><button>Meu Perfil</button></Link>
+                   <Link to="/MeusPedidos" element={MeusPedidos}><button>Meus Pedidos</button></Link>
                 </li>
                 <li>
                     <Link to="/Listagem" element={Listagem}><button>Listagem de produtos</button></Link>
@@ -89,7 +90,6 @@ function Listagem(){
             <div className="projects">
                     <div className="card">
                         <div className="card-header">
-                            <h3>Listagem</h3>
                             <div className="list-products">
                                 {product.map(product => {
                                     return(
@@ -97,7 +97,7 @@ function Listagem(){
                                             <strong>{product.nome}<br/></strong>
                                             <span>{`Preço: R$${product.preco},00`}<br/></span>
                                             <span>{`Quantidade: ${product.quantidade}`}<br/></span>
-                                            <span>{`Data de colheita: ${moment(product.data_colheita).format('DD/MM/YYYY')}`}<br/></span>
+                                            <span>{'Data de colheita: '}<br/> {`${moment(product.data_colheita).format('DD/MM/YYYY')}`}<br/></span>
                                             <button onClick={() => addRequest(product.id)}>Reservar<br/></button>
                                         </article>
                                     )

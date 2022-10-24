@@ -1,15 +1,12 @@
 import React from "react";
-import axios from "axios";
-import {Link} from 'react-router-dom';
 import { useState } from "react";
-import LogIn from '../LogIn/LogIn';
 import * as yup from "yup";
 import './Cadastro.css'; 
 import { api } from '../../services/apiClient';
 
 function Cadastro() {
 
-    const [post, setPost] = useState({});
+    const [post] = useState({});
     const [user, setUser] = useState({});
 
     const [status, setStatus] = useState({
@@ -25,28 +22,7 @@ function Cadastro() {
         e.preventDefault();
 
         if(!(await validate())) return; 
-
-        // const saveDataForm = true;
-
-        // if (saveDataForm) {
-        //     setUser({
-        //         name: '',
-        //         email: '',
-        //         password: ''
-        //     });
-        // } else{
-        //     setStatus({
-        //         type: 'error',
-        //         mensagem: 'Erro: Usuário não cadastrado!'
-        //     })
-        // }
-    } 
-
-    // React.useEffect(() => {
-    //     axios.get("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidHlwZSI6ImFncm9ub21vIiwiaWF0IjoxNjY2NDY2NzMwLCJleHAiOjE2NjcwNzE1MzB9.7bnK0NcVf0j8mTAJDBmZmDj45alM97ahOMqIvGLP07M").then((response) => {
-    //       setPost(response.data);
-    //     });
-    //   }, []);
+    }
     
      async function createPost() {
         const request = api();
@@ -65,7 +41,6 @@ function Cadastro() {
             firstname: yup.string("Erro: Preencha o formulário"),
             password: yup.string("Erro: Necessário preencher o campo senha!"),
             email: yup.string("Erro: Necessário preencher o campo e-mail!"),
-                // .required("Erro: Necessário preencher o campo e-mail!"),
             lastname: yup.string("Erro: Necessário preencher o campo nome!"),
             address: yup.string("Erro: Necessário preencher o campo endereço!"),
             cep: yup.number("Erro: Necessário preencher o campo cep!"),

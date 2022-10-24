@@ -10,6 +10,7 @@ function LogIn() {
 
     const valueInput = e => {
         setUser({...user, [e.target.name]: e.target.value});
+        console.log(user);
     } 
 
     const sendForm = e => {
